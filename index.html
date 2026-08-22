@@ -192,6 +192,9 @@ h1.name{
   color:var(--ink-2);letter-spacing:-.018em;line-height:1.42;margin:0 0 22px;max-width:36ch;
 }
 .role b{color:var(--magenta);font-weight:600}
+.rolelink{color:inherit;text-decoration:underline;text-decoration-thickness:1px;
+  text-underline-offset:3px;text-decoration-color:#DD8BBB}
+.rolelink:hover{color:var(--magenta);text-decoration-color:var(--magenta)}
 .bio{max-width:56ch;color:var(--ink-2)}
 .bio p{margin:0 0 14px}
 .bio p:last-child{margin-bottom:0}
@@ -395,6 +398,7 @@ pre.bib.open{display:block}
 }
 .entry h3{font-size:1.03rem;font-weight:600;letter-spacing:-.02em;margin-bottom:2px}
 .entry .org{font-size:14px;color:var(--magenta);font-weight:500;margin-bottom:9px}
+.entry .org a{color:inherit}
 .entry ul{margin:0;padding-left:17px;font-size:14.5px;color:var(--ink-2)}
 .entry ul li{margin-bottom:5px}
 .entry ul li::marker{color:var(--magenta)}
@@ -478,7 +482,7 @@ footer a:hover{color:var(--magenta)}
       <div>
         <div class="eyebrow">Bucaramanga, Colombia</div>
         <h1 class="name">Laura C.<br>Diaz-Delgado</h1>
-        <p class="role">Computer Science undergraduate researching <b>computational imaging</b> and <b>inverse problems</b> at the High Dimensional Signal Processing group, Universidad Industrial de Santander.</p>
+        <p class="role">Computer Science undergraduate researching <b>computational imaging</b> and <b>inverse problems</b> at the <a class="rolelink" href="https://hdspgroup.github.io/" target="_blank" rel="noopener">High Dimensional Signal Processing group</a>, Universidad Industrial de Santander.</p>
         <div class="bio">
           <p>I work on reconstruction methods that stay reliable when the physics gets hard — photon-limited sensing, signal-dependent Poisson noise, and acquisition operators that break the usual Gaussian assumptions.</p>
           <p>My current line of work asks how far frozen foundation-model representations can be pushed as priors inside unrolled solvers, so that reconstruction generalises across datasets and optical setups <em>without</em> clean ground truth and without expensive fine-tuning.</p>
@@ -680,7 +684,7 @@ footer a:hover{color:var(--magenta)}
           <div class="entry now">
             <div class="when">2022 — Present</div>
             <h3>Assistant Researcher</h3>
-            <div class="org">High Dimensional Signal Processing Group (HDSP)</div>
+            <div class="org"><a href="https://hdspgroup.github.io/" target="_blank" rel="noopener">High Dimensional Signal Processing Group (HDSP)</a></div>
             <ul>
               <li>Lead and coordinate the research hotbed on coding design for compressive sampling of multidimensional signals with deep learning.</li>
               <li>Coordinate the low-cost near-infrared multispectral optical-computational system for estimating physicochemical properties of dried cocoa beans.</li>
@@ -818,7 +822,7 @@ footer a:hover{color:var(--magenta)}
 <footer>
   <div class="wrap">
     <span>© 2026 Laura Camila Diaz-Delgado</span>
-    <span class="mono">HDSP · Universidad Industrial de Santander</span>
+    <span class="mono"><a href="https://hdspgroup.github.io/" target="_blank" rel="noopener">HDSP</a> · Universidad Industrial de Santander</span>
   </div>
 </footer>
 </main>
