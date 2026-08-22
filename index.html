@@ -10,7 +10,7 @@
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Laura C. Diaz-Delgado">
-<meta property="og:description" content="Computational imaging &amp; inverse problems · Universidad Industrial de Santander · ECCV 2026">
+<meta property="og:description" content="Computational imaging &amp; inverse problems · Universidad Industrial de Santander · ECCV 2026, Poster Session 3, ExHall board #50">
 <meta property="og:url" content="https://lauracd2.github.io/">
 <meta property="og:image" content="https://lauracd2.github.io/assets/frozen-clip-teaser.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -211,12 +211,12 @@ h1.name{
 
 /* ---------- conference banner ---------- */
 .banner{
-  margin:44px 0 8px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;
-  padding:16px 20px;border-radius:14px;
+  margin:44px 0 8px;padding:18px 20px;border-radius:14px;
   background:var(--magenta-tint);border:1px solid var(--magenta-line);
 }
+.bannertop{display:flex;gap:12px;align-items:flex-start}
 .banner .pulse{
-  width:8px;height:8px;border-radius:50%;background:var(--magenta);flex:none;
+  width:8px;height:8px;border-radius:50%;background:var(--magenta);flex:none;margin-top:8px;
   box-shadow:0 0 0 0 var(--magenta-line);
   animation:pulse 2.4s infinite;
 }
@@ -226,12 +226,33 @@ h1.name{
   100%{box-shadow:0 0 0 0 transparent}
 }
 @media(prefers-reduced-motion:reduce){.banner .pulse{animation:none}}
-.banner .txt{flex:1;min-width:230px;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.banner .txt{flex:1;min-width:230px;font-size:14.5px;color:var(--ink-2);line-height:1.55}
 .banner .txt strong{color:var(--ink);font-weight:600}
-.banner .where{
-  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--magenta);white-space:nowrap;
+
+.session{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  margin:16px 0 0;background:var(--magenta-line);
+  border:1px solid var(--magenta-line);border-radius:11px;overflow:hidden;
 }
+.session > div{background:var(--surface);padding:11px 14px}
+.session dt{
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:3px;
+}
+.session dd{
+  margin:0;font-family:var(--display);font-size:14px;font-weight:600;
+  letter-spacing:-.015em;color:var(--ink);line-height:1.35;
+}
+.session dd .hi{color:var(--magenta)}
+
+.session-inline{
+  display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;
+  margin:0 0 16px;padding:9px 13px;border-radius:10px;
+  background:var(--magenta-tint);border:1px solid var(--magenta-line);
+  font-size:13px;color:var(--ink-2);line-height:1.45;
+}
+.session-inline b{color:var(--ink);font-weight:600}
+.session-inline svg{width:14px;height:14px;flex:none;color:var(--magenta)}
 
 /* ---------- sections ---------- */
 section{padding:60px 0;scroll-margin-top:78px}
@@ -473,9 +494,15 @@ footer a:hover{color:var(--magenta)}
     </div>
 
     <div class="banner">
-      <span class="pulse" aria-hidden="true"></span>
-      <div class="txt"><strong>I'll be at ECCV 2026 in Malmö</strong> presenting <em>Frozen CLIP Priors</em> at the main conference, and again at the Women in Computer Vision workshop. If you work on inverse problems, self-supervision or photon-limited imaging, come find me at the poster.</div>
-      <div class="where">Sept 8–12 · Malmö</div>
+      <div class="bannertop">
+        <span class="pulse" aria-hidden="true"></span>
+        <div class="txt"><strong>Find me at ECCV 2026 in Malmö.</strong> I'm presenting <em>Frozen CLIP Priors</em> at the main conference, and again at the Women in Computer Vision workshop. If you work on inverse problems, self-supervision or photon-limited imaging, come say hello.</div>
+      </div>
+      <dl class="session">
+        <div><dt>Session</dt><dd>Poster Session 3</dd></div>
+        <div><dt>When</dt><dd><time datetime="2026-09-11T10:30+02:00">Fri 11 Sept, 10:30–12:30</time> CEST</dd></div>
+        <div><dt>Where</dt><dd>ExHall · board <span class="hi">#50</span></dd></div>
+      </dl>
     </div>
   </div>
 </header>
@@ -510,6 +537,11 @@ footer a:hover{color:var(--magenta)}
         <h3>Frozen CLIP Priors for Robust Self-Supervised Poisson Inverse Problems</h3>
         <p class="authors"><span class="me">Laura C. Diaz-Delgado</span>, Emmanuel Martinez, Henry Arguello</p>
         <p class="where">Universidad Industrial de Santander · Malmö, Sweden · September 2026</p>
+
+        <p class="session-inline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span><b>Poster Session 3</b> · Fri 11 Sept, 10:30–12:30 CEST · ExHall, board <b>#50</b></span>
+        </p>
 
         <p class="abstract">An ADMM-inspired unrolled plug-and-play solver for Poisson inverse problems that decouples a closed-form data-consistency update from a parameter-efficient prior. The prior is a lightweight decoder over <em>frozen</em> CLIP RN50 dense multi-scale features, and self-supervision combines GR2R measurement-domain re-corruption with an equivariant-imaging regulariser over virtual acquisitions — so no clean ground truth is ever required.</p>
 
@@ -584,7 +616,7 @@ footer a:hover{color:var(--magenta)}
     <ul class="news">
       <li class="new">
         <span class="date">Sept 2026</span>
-        <span class="what">Presenting <strong>Frozen CLIP Priors</strong> at <strong>ECCV 2026</strong> in Malmö, Sweden — at the main conference, and again at the Women in Computer Vision workshop.</span>
+        <span class="what">Presenting <strong>Frozen CLIP Priors</strong> at <strong>ECCV 2026</strong> in Malmö, Sweden — Poster Session 3, Friday 11 September, 10:30–12:30 CEST, ExHall board #50. Also at the Women in Computer Vision workshop.</span>
       </li>
       <li class="new">
         <span class="date">Aug 2026</span>
