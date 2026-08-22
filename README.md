@@ -11,7 +11,7 @@ Live: https://lauracd2.github.io
 - `assets/laura.jpg` — portrait shown in the hero. Square-ish crop, ~600px works well.
 - `assets/Laura_Diaz-Delgado_CV.pdf` — CV linked from the header and footer.
 - `assets/frozen-clip-teaser.jpg` — teaser figure for the ECCV 2026 paper.
-- `assets/Frozen-CLIP-Priors_ECCV2026_Poster.pdf` — WiCV poster.
+- `assets/Frozen-CLIP-Priors_ECCV2026_Poster.pdf` — conference poster.
 
 ## Updating
 
