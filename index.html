@@ -1,181 +1,797 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laura Camila Diaz-Delgado - CV</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f2f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 880px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        header p {
-            margin: 0;
-            font-size: 1em;
-            color: #555;
-        }
-        section {
-            margin-bottom: 30px;
-        }
-        section h2 {
-            font-size: 1.5em;
-            border-bottom: 2px solid #FF1493; /* Pink color */
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            color: #FF1493; /* Pink color */
-        }
-        .item {
-            margin-bottom: 20px;
-        }
-        .item h3 {
-            margin: 0;
-            font-size: 1.2em;
-            color: #333;
-        }
-        .item p {
-            margin: 5px 0;
-            font-size: 0.95em;
-            color: #444;
-        }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-        ul li {
-            margin-bottom: 5px;
-            font-size: 0.95em;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.85em;
-            color: #777;
-            padding: 10px 0;
-            border-top: 1px solid #ddd;
-            margin-top: 30px;
-        }
-        a {
-            color: #FF1493; /* Pink color */
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laura C. Diaz-Delgado</title>
+<meta name="description" content="Laura C. Diaz-Delgado — computational imaging and inverse problems researcher at Universidad Industrial de Santander (HDSP). Frozen CLIP Priors for Robust Self-Supervised Poisson Inverse Problems, ECCV 2026.">
+<meta name="author" content="Laura Camila Diaz-Delgado">
+<link rel="canonical" href="https://lauracd2.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Laura C. Diaz-Delgado">
+<meta property="og:description" content="Computational imaging &amp; inverse problems · Universidad Industrial de Santander · ECCV 2026">
+<meta property="og:url" content="https://lauracd2.github.io/">
+<meta property="og:image" content="https://lauracd2.github.io/assets/frozen-clip-teaser.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23C2007B'/><text x='50' y='54' font-family='sans-serif' font-size='54' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle'>L</text></svg>">
+
+<style>
+:root{
+  --magenta:#C2007B;
+  --magenta-bright:#E5008F;
+  --magenta-tint:#FDEFF7;
+  --magenta-line:#F3D2E6;
+
+  --ink:#17121B;
+  --ink-2:#3D3446;
+  --ink-3:#6B6175;
+  --ink-4:#9A93A2;
+
+  --bg:#FCFBFC;
+  --surface:#FFFFFF;
+  --line:#EAE6EC;
+  --line-soft:#F2EFF3;
+
+  --on-magenta:#FFFFFF;
+
+  --sans:'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display:'Inter Tight', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --wrap:920px;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(23,18,27,.04), 0 8px 28px -12px rgba(23,18,27,.14);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --magenta:#FF5CB4;
+    --magenta-bright:#FF7FC4;
+    --magenta-tint:#241220;
+    --magenta-line:#4A1F3B;
+
+    --ink:#F4F0F6;
+    --ink-2:#CFC7D6;
+    --ink-3:#9E95A8;
+    --ink-4:#6F6679;
+
+    --bg:#0D0A10;
+    --surface:#151119;
+    --line:#251E2C;
+    --line-soft:#1D1723;
+
+    --on-magenta:#1A0512;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --magenta:#FF5CB4;
+  --magenta-bright:#FF7FC4;
+  --magenta-tint:#241220;
+  --magenta-line:#4A1F3B;
+
+  --ink:#F4F0F6;
+  --ink-2:#CFC7D6;
+  --ink-3:#9E95A8;
+  --ink-4:#6F6679;
+
+  --bg:#0D0A10;
+  --surface:#151119;
+  --line:#251E2C;
+  --line-soft:#1D1723;
+
+  --on-magenta:#1A0512;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink-2);
+  font-family:var(--sans);
+  font-size:16.5px;
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--magenta);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+h1,h2,h3,h4{font-family:var(--display);color:var(--ink);margin:0;line-height:1.18;letter-spacing:-.022em}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 26px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:var(--bg);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s;
+}
+@supports (backdrop-filter: blur(1px)){
+  .topbar{background:color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter:saturate(1.6) blur(14px);
+    -webkit-backdrop-filter:saturate(1.6) blur(14px);}
+}
+.topbar.stuck{border-bottom-color:var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:20px;height:62px}
+.brand{
+  font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);
+  letter-spacing:-.02em;white-space:nowrap;
+}
+.brand:hover{text-decoration:none;color:var(--magenta)}
+.brand .dot{color:var(--magenta)}
+nav.main{margin-left:auto;display:flex;gap:2px;align-items:center}
+nav.main a{
+  font-size:13.5px;font-weight:500;color:var(--ink-3);
+  padding:7px 11px;border-radius:8px;letter-spacing:-.01em;
+}
+nav.main a:hover{color:var(--ink);background:var(--line-soft);text-decoration:none}
+nav.main a.active{color:var(--magenta)}
+.themetoggle{
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-3);
+  width:32px;height:32px;border-radius:9px;display:grid;place-items:center;
+  cursor:pointer;margin-left:8px;flex:none;transition:.2s;padding:0;
+}
+.themetoggle:hover{color:var(--magenta);border-color:var(--magenta-line)}
+.themetoggle svg{width:15px;height:15px}
+@media(max-width:760px){nav.main a{display:none}nav.main a.always{display:block}}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 8px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:-140px 0 auto -10%;height:520px;z-index:0;
+  background:radial-gradient(58% 62% at 22% 30%, var(--magenta-tint) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero .wrap{position:relative;z-index:1}
+.herogrid{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:52px;align-items:start}
+@media(max-width:780px){
+  .hero{padding-top:44px}
+  .herogrid{grid-template-columns:1fr;gap:30px}
+  .portrait{order:-1;width:132px}
+}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--magenta);margin-bottom:16px;
+}
+h1.name{
+  font-size:clamp(2.5rem,6.4vw,3.75rem);font-weight:800;letter-spacing:-.038em;
+  margin-bottom:14px;color:var(--ink);
+}
+.role{
+  font-family:var(--display);font-size:clamp(1.06rem,2.3vw,1.24rem);font-weight:500;
+  color:var(--ink-2);letter-spacing:-.018em;line-height:1.42;margin:0 0 22px;max-width:36ch;
+}
+.role b{color:var(--magenta);font-weight:600}
+.bio{max-width:56ch;color:var(--ink-2)}
+.bio p{margin:0 0 14px}
+.bio p:last-child{margin-bottom:0}
+
+.portrait{position:relative;width:100%;max-width:210px}
+.portrait .frame{
+  aspect-ratio:1/1.13;border-radius:20px;overflow:hidden;
+  background:linear-gradient(155deg,var(--magenta-tint),var(--magenta-line));
+  border:1px solid var(--magenta-line);box-shadow:var(--shadow);position:relative;
+}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;position:relative;z-index:1}
+.portrait .fallback{
+  position:absolute;inset:0;display:grid;place-items:center;z-index:0;
+  font-family:var(--display);font-size:3.4rem;font-weight:800;letter-spacing:-.04em;
+  color:var(--magenta);
+}
+.portrait::after{
+  content:"";position:absolute;inset:11px -11px -11px 11px;border-radius:20px;z-index:-1;
+  border:1px solid var(--magenta-line);
+}
+
+/* ---------- link row ---------- */
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.lnk{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:8px 13px;border-radius:10px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink-2);
+  font-size:13.5px;font-weight:500;letter-spacing:-.01em;transition:.16s;
+}
+.lnk:hover{
+  text-decoration:none;color:var(--magenta);border-color:var(--magenta-line);
+  background:var(--magenta-tint);transform:translateY(-1px);
+}
+.lnk svg{width:15px;height:15px;flex:none}
+.lnk.primary{background:var(--magenta);border-color:var(--magenta);color:var(--on-magenta)}
+.lnk.primary:hover{background:var(--magenta-bright);border-color:var(--magenta-bright);color:var(--on-magenta)}
+
+/* ---------- conference banner ---------- */
+.banner{
+  margin:44px 0 8px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+  padding:16px 20px;border-radius:14px;
+  background:var(--magenta-tint);border:1px solid var(--magenta-line);
+}
+.banner .pulse{
+  width:8px;height:8px;border-radius:50%;background:var(--magenta);flex:none;
+  box-shadow:0 0 0 0 var(--magenta-line);
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 var(--magenta-line)}
+  70%{box-shadow:0 0 0 9px transparent}
+  100%{box-shadow:0 0 0 0 transparent}
+}
+@media(prefers-reduced-motion:reduce){.banner .pulse{animation:none}}
+.banner .txt{flex:1;min-width:230px;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.banner .txt strong{color:var(--ink);font-weight:600}
+.banner .where{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--magenta);white-space:nowrap;
+}
+
+/* ---------- sections ---------- */
+section{padding:60px 0;scroll-margin-top:78px}
+.sechead{display:flex;align-items:baseline;gap:14px;margin-bottom:30px}
+.sechead h2{font-size:1.42rem;font-weight:700;letter-spacing:-.028em;white-space:nowrap}
+.sechead .rule{flex:1;height:1px;background:var(--line)}
+.sechead .count{font-family:var(--mono);font-size:11.5px;color:var(--ink-4);letter-spacing:.06em;white-space:nowrap}
+
+/* ---------- interests ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;
+  border:1px solid var(--line);color:var(--ink-2);background:var(--surface);
+}
+.chip.hot{border-color:var(--magenta-line);color:var(--magenta);background:var(--magenta-tint)}
+
+/* ---------- publications ---------- */
+.pub{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
+  padding:22px;margin-bottom:16px;transition:.2s;
+}
+.pub:hover{border-color:var(--magenta-line);box-shadow:var(--shadow)}
+.pub.feature{border-color:var(--magenta-line);padding:0;overflow:hidden}
+.pub.feature .teaser{
+  background:var(--magenta-tint);border-bottom:1px solid var(--magenta-line);
+  padding:20px 22px;
+}
+.pub.feature .teaser img{border-radius:8px;width:100%}
+.pub.feature .body{padding:22px}
+.pubvenue{
+  display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap;font-family:var(--mono);
+  font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--magenta);margin-bottom:11px;
+}
+.pubvenue .tag{
+  background:var(--magenta);color:var(--on-magenta);padding:2.5px 7px;border-radius:5px;letter-spacing:.05em;
+}
+.pubvenue.muted{color:var(--ink-3)}
+.pubvenue.muted .tag{background:var(--ink-4);color:var(--bg)}
+.pub h3{font-size:1.14rem;font-weight:600;letter-spacing:-.025em;line-height:1.32;margin-bottom:9px}
+.pub .authors{font-size:14.5px;color:var(--ink-3);margin:0 0 6px}
+.pub .authors .me{color:var(--ink);font-weight:600}
+.pub .where{font-size:13.5px;color:var(--ink-3);margin:0 0 14px}
+.pub .abstract{
+  font-size:14.5px;color:var(--ink-2);line-height:1.62;
+  border-left:2px solid var(--magenta-line);padding-left:15px;margin:0 0 16px;
+}
+.pubactions{display:flex;flex-wrap:wrap;gap:7px}
+.pubactions a,.pubactions button{
+  font-family:var(--sans);font-size:12.5px;font-weight:500;
+  padding:6px 11px;border-radius:8px;border:1px solid var(--line);
+  background:transparent;color:var(--ink-2);cursor:pointer;transition:.16s;
+  display:inline-flex;align-items:center;gap:6px;line-height:1.5;
+}
+.pubactions a:hover,.pubactions button:hover{
+  text-decoration:none;color:var(--magenta);border-color:var(--magenta-line);background:var(--magenta-tint);
+}
+.pubactions svg{width:13px;height:13px}
+
+.highlights{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:11px;overflow:hidden;margin:16px 0;
+}
+.hl{background:var(--surface);padding:13px 15px}
+.hl .n{
+  font-family:var(--display);font-size:1.32rem;font-weight:700;color:var(--magenta);
+  letter-spacing:-.03em;line-height:1.1;
+}
+.hl .n span{font-size:.66em;font-weight:600;color:var(--ink-3);letter-spacing:0}
+.hl .l{font-size:11.5px;color:var(--ink-3);line-height:1.35;margin-top:3px}
+
+pre.bib{
+  display:none;margin:14px 0 0;padding:15px;border-radius:10px;
+  background:var(--line-soft);border:1px solid var(--line);
+  font-family:var(--mono);font-size:11.5px;line-height:1.65;color:var(--ink-2);
+  overflow-x:auto;white-space:pre;
+}
+pre.bib.open{display:block}
+
+/* ---------- news ---------- */
+.news{list-style:none;margin:0;padding:0}
+.news li{
+  display:grid;grid-template-columns:92px 1fr;gap:18px;
+  padding:13px 0;border-bottom:1px solid var(--line-soft);font-size:15px;
+}
+.news li:last-child{border-bottom:0}
+.news .date{
+  font-family:var(--mono);font-size:11.5px;color:var(--ink-4);
+  letter-spacing:.04em;padding-top:5px;white-space:nowrap;
+}
+.news li.new .date{color:var(--magenta)}
+.news .what{color:var(--ink-2)}
+.news .what strong{color:var(--ink);font-weight:600}
+@media(max-width:600px){
+  .news li{grid-template-columns:1fr;gap:2px}
+  .news .date{padding-top:0}
+}
+
+/* ---------- timeline ---------- */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.entry{position:relative;padding-bottom:30px}
+.entry:last-child{padding-bottom:0}
+.entry::before{
+  content:"";position:absolute;left:-26px;top:8px;width:9px;height:9px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--line);
+}
+.entry.now::before{background:var(--magenta);border-color:var(--magenta)}
+.entry .when{
+  font-family:var(--mono);font-size:11.5px;color:var(--ink-4);letter-spacing:.04em;margin-bottom:4px;
+}
+.entry h3{font-size:1.03rem;font-weight:600;letter-spacing:-.02em;margin-bottom:2px}
+.entry .org{font-size:14px;color:var(--magenta);font-weight:500;margin-bottom:9px}
+.entry ul{margin:0;padding-left:17px;font-size:14.5px;color:var(--ink-2)}
+.entry ul li{margin-bottom:5px}
+.entry ul li::marker{color:var(--magenta)}
+.entry > p{font-size:14.5px;color:var(--ink-2);margin:0}
+
+/* ---------- awards ---------- */
+.awards{display:grid;gap:12px;align-content:start}
+.award{
+  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:15px 17px;border:1px solid var(--line);border-radius:12px;background:var(--surface);
+}
+.award .mark{
+  width:26px;height:26px;border-radius:8px;display:grid;place-items:center;flex:none;
+  background:var(--magenta-tint);color:var(--magenta);border:1px solid var(--magenta-line);
+}
+.award .mark svg{width:13px;height:13px}
+.award h3{font-size:.97rem;font-weight:600;letter-spacing:-.018em;margin-bottom:3px}
+.award p{margin:0;font-size:13.8px;color:var(--ink-3);line-height:1.5}
+
+/* ---------- two col ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+@media(max-width:760px){.two{grid-template-columns:1fr;gap:28px}}
+.sub{
+  font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:14px;
+}
+
+/* ---------- beyond ---------- */
+.beyond{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
+  padding:26px;
+}
+.beyond p{margin:0 0 14px;font-size:15px;color:var(--ink-2)}
+.beyond p:last-of-type{margin-bottom:18px}
+.beyond strong{color:var(--ink);font-weight:600}
+
+/* ---------- skills ---------- */
+.skillrow{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px}
+.skillrow:last-child{border-bottom:0}
+.skillrow .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-4);padding-top:4px}
+.skillrow .v{color:var(--ink-2)}
+@media(max-width:600px){.skillrow{grid-template-columns:1fr;gap:2px}.skillrow .k{padding-top:0}}
+
+/* ---------- contact / footer ---------- */
+.contact{border-top:1px solid var(--line);margin-top:20px;padding:56px 0 22px}
+.contact h2{font-size:1.9rem;font-weight:700;letter-spacing:-.035em;margin-bottom:12px}
+.contact p{max-width:50ch;color:var(--ink-2);margin:0 0 22px}
+footer{padding:26px 0 44px;font-size:12.5px;color:var(--ink-4)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--ink-3)}
+footer a:hover{color:var(--magenta)}
+.mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+
+::selection{background:var(--magenta-line);color:var(--ink)}
+:focus-visible{outline:2px solid var(--magenta);outline-offset:3px;border-radius:5px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:26px;top:12px;z-index:99;background:var(--magenta);color:var(--on-magenta);padding:9px 15px;border-radius:9px}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Laura Camila Diaz-Delgado</h1>
-            <p>
-                <a href="mailto:lauracamiladiazdelgado@gmail.com">lauracamiladiazdelgado@gmail.com</a> |
-                <a href="https://www.linkedin.com/in/laura-camila-diaz-delgado-689a55209/" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/LauraCD2" target="_blank">GitHub</a> |
-                Colombia
-            </p>
-        </header>
+<a class="skip" href="#main">Skip to content</a>
 
-        <section>
-            <h2>Education</h2>
-            <div class="item">
-                <h3>Universidad Industrial de Santander (UIS)</h3>
-                <p>B.Sc. in Computer Science; GPA: 4.52/5.00 (Apr 2022 – Present, Expected Graduation: 2026)</p>
-            </div>
-        </section>
+<div class="topbar" id="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Laura C. Diaz-Delgado<span class="dot">.</span></a>
+    <nav class="main">
+      <a href="#publications">Publications</a>
+      <a href="#news">News</a>
+      <a href="#experience">Experience</a>
+      <a href="#awards">Awards</a>
+      <a href="#beyond">Beyond</a>
+      <a href="#contact" class="always">Contact</a>
+      <button class="themetoggle" id="themetoggle" aria-label="Toggle colour theme" title="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+  </div>
+</div>
 
-        <section>
-            <h2>Research Experience</h2>
-            <div class="item">
-                <h3>Assistant Researcher</h3>
-                <p>High Dimensional Signal Processing Research Group (HDSP), Bucaramanga, Colombia (2022 – Present)</p>
-                <ul>
-                    <li>Leadership and coordination of the hotbed group in "Coding design for compressive sampling of multidimensional signals using techniques based on deep learning".</li>
-                    <li>Coordination and supervision of operational processes for the project "Low-cost multispectral optical-computational system in the near-infrared for estimating the physicochemical properties of dried cocoa beans using deep learning".</li>
-                    <li>Responsible for the acquisition of spectral signatures of dried cocoa beans in the optical laboratory, including spectral data preprocessing and quantitative validation of classification and regression algorithms.</li>
-                    <li>Development and validation of a survey instrument, as well as the application of inferential methods and data processing to quantify the effectiveness of privacy-preserving techniques in clinical datasets.</li>
-                </ul>
-            </div>
-        </section>
+<main id="main">
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="herogrid">
+      <div>
+        <div class="eyebrow">Bucaramanga, Colombia</div>
+        <h1 class="name">Laura C.<br>Diaz-Delgado</h1>
+        <p class="role">Computer Science undergraduate researching <b>computational imaging</b> and <b>inverse problems</b> at the High Dimensional Signal Processing group, Universidad Industrial de Santander.</p>
+        <div class="bio">
+          <p>I work on reconstruction methods that stay reliable when the physics gets hard — photon-limited sensing, signal-dependent Poisson noise, and acquisition operators that break the usual Gaussian assumptions.</p>
+          <p>My current line of work asks how far frozen foundation-model representations can be pushed as priors inside unrolled solvers, so that reconstruction generalises across datasets and optical setups <em>without</em> clean ground truth and without expensive fine-tuning.</p>
+        </div>
+        <div class="links">
+          <a class="lnk primary" href="#publications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Publications
+          </a>
+          <a class="lnk" href="assets/Laura_Diaz-Delgado_CV.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+            CV
+          </a>
+          <a class="lnk" href="https://scholar.google.com/citations?user=jAfnVpoAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+            Scholar
+          </a>
+          <a class="lnk" href="https://github.com/LauraCD2" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.24-3.24-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.24a11.4 11.4 0 0 1 6 0c2.29-1.56 3.3-1.24 3.3-1.24.65 1.65.24 2.88.12 3.18.77.84 1.23 1.92 1.23 3.24 0 4.63-2.8 5.65-5.48 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .5z"/></svg>
+            GitHub
+          </a>
+          <a class="lnk" href="https://www.linkedin.com/in/laura-camila-diaz-delgado-689a55209/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM2.4 21h5.15V9.5H2.4V21zM9.9 9.5h4.93v1.57h.07a5.4 5.4 0 0 1 4.86-2.67c5.2 0 6.16 3.42 6.16 7.87V21h-5.14v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48V21H9.9V9.5z"/></svg>
+            LinkedIn
+          </a>
+          <a class="lnk" href="mailto:lauracamiladiazdelgado@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
 
-        <section>
-            <h2>Work Experience</h2>
-            <div class="item">
-                <h3>Art Instructor | Integral Wellness - UIS</h3>
-                <p>Bucaramanga, Colombia (2024 – Present)</p>
-                <p>Art and emotional wellness workshops for administrative personnel.</p>
-            </div>
-            <div class="item">
-                <h3>Teacher | Mochila Cantora Corporación Cultural</h3>
-                <p>Bucaramanga, Colombia (2023 – Present)</p>
-                <p>Artistic-musical education for children 2–18 years old (including ASD).</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Awards & Achievements</h2>
-            <ul>
-                <li><strong>"Best University Choir of Colombia"</strong>: First place in "Festival Nacional Universitario de Coros y Ensambles Vocales 2024", Soprano in UIS University Choir - Asociación Colombiana de Universidades (ASCUN).</li>
-                <li><strong>"Arrurrú"</strong>: Most Dedicated Chorus Member Award - Coral Universitaria UIS.</li>
-                <li><strong>"Generación E, Excelencia"</strong>: Full undergraduate scholarship for excellence - Colombian Government and ICETEX.</li>
-                <li><strong>Medals</strong>: "Excelencia", "Liderazgo" y "Espíritu Anunciato" - Instituto Santa Teresita.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Additional Training and Certifications</h2>
-            <ul>
-                <li><strong>French Certification - Level B2</strong>: Aug 2022 - Dec 2023 (Ambassade de France en Colombie, certified as CEFR B2 level).</li>
-                <li><strong>Telecommunications Data Network Cabling Design</strong>: Aug 2023 - Oct 2023 (Servicio Nacional de Aprendizaje, SENA, 48-hour course).</li>
-                <li><strong>Diplomado en Habilidades de Programación - Misión TIC 2022</strong>: May 2021 - Dec 2021 (800-hour virtual course focused on Web Application Development).</li>
-                <li><strong>English Certification - Level B2</strong>: 2011 - May 2020 (GPA: 4.7/5.00, Language Institute of the UIS, independent user B2 according to MCER).</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Extracurricular Activities</h2>
-            <div class="item">
-                <h3>Member of the STSIVA International Conference Organizing Team</h3>
-                <p>2024 – Present</p>
-                <p>Management of local logistics and design of visual materials for the conference.</p>
-            </div>
-            <div class="item">
-                <h3>Soprano in UIS University Choir</h3>
-                <p>2022 – Present</p>
-                <p>Representation of the university, promoting culture within and outside the academic community.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Skills</h2>
-            <ul>
-                <li><strong>Programming</strong>: Python, MATLAB, C++, Pytorch, Tensorflow, Git.</li>
-                <li><strong>Languages</strong>: Spanish (Native), English (Fluent), French (Professional).</li>
-            </ul>
-        </section>
-
-        <footer>
-            &copy; 2025 Laura Camila Diaz-Delgado
-        </footer>
+      <div class="portrait">
+        <div class="frame">
+          <div class="fallback" aria-hidden="true">LD</div>
+          <img src="assets/laura.jpg" alt="Portrait of Laura C. Diaz-Delgado" onerror="this.style.display='none'">
+        </div>
+      </div>
     </div>
+
+    <div class="banner">
+      <span class="pulse" aria-hidden="true"></span>
+      <div class="txt"><strong>I'll be at ECCV 2026 in Malmö</strong> presenting <em>Frozen CLIP Priors</em> at the Women in Computer Vision workshop. If you work on inverse problems, self-supervision or photon-limited imaging, come find me at the poster.</div>
+      <div class="where">Sept 8–12 · Malmö</div>
+    </div>
+  </div>
+</header>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sechead"><h2>Research interests</h2><div class="rule"></div></div>
+    <div class="chips">
+      <span class="chip hot">Computational imaging</span>
+      <span class="chip hot">Inverse problems</span>
+      <span class="chip hot">Self-supervised learning</span>
+      <span class="chip">Foundation-model priors</span>
+      <span class="chip">Unrolled &amp; plug-and-play solvers</span>
+      <span class="chip">Poisson / photon-limited imaging</span>
+      <span class="chip">Optical encoding design</span>
+      <span class="chip">Spectral imaging</span>
+      <span class="chip">Single-pixel imaging</span>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <div class="sechead"><h2>Publications</h2><div class="rule"></div><span class="count">3 papers</span></div>
+
+    <article class="pub feature">
+      <div class="teaser">
+        <img src="assets/frozen-clip-teaser.jpg" alt="Architecture diagram: an ADMM-unrolled solver in which each layer performs an x-update, a z-update using a frozen CLIP encoder with a trainable decoder, and a v-update.">
+      </div>
+      <div class="body">
+        <div class="pubvenue"><span class="tag">ECCV 2026</span> Women in Computer Vision Workshop</div>
+        <h3>Frozen CLIP Priors for Robust Self-Supervised Poisson Inverse Problems</h3>
+        <p class="authors"><span class="me">Laura C. Diaz-Delgado</span>, Emmanuel Martinez, Henry Arguello</p>
+        <p class="where">Universidad Industrial de Santander · Malmö, Sweden · September 2026</p>
+
+        <p class="abstract">An ADMM-inspired unrolled plug-and-play solver for Poisson inverse problems that decouples a closed-form data-consistency update from a parameter-efficient prior. The prior is a lightweight decoder over <em>frozen</em> CLIP RN50 dense multi-scale features, and self-supervision combines GR2R measurement-domain re-corruption with an equivariant-imaging regulariser over virtual acquisitions — so no clean ground truth is ever required.</p>
+
+        <div class="highlights">
+          <div class="hl"><div class="n">30.53 <span>dB</span></div><div class="l">Self-supervised Poisson demosaicing, BSDS500</div></div>
+          <div class="hl"><div class="n">0.31 <span>dB</span></div><div class="l">Worst-case gap to supervised training</div></div>
+          <div class="hl"><div class="n">100<span>×</span></div><div class="l">Fewer TFLOPs than Transfer CLIP</div></div>
+          <div class="hl"><div class="n">24 <span>ms</span></div><div class="l">Per image on one RTX 4070</div></div>
+        </div>
+
+        <div class="pubactions">
+          <a href="assets/Frozen-CLIP-Priors_ECCV2026_Poster.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Poster
+          </a>
+          <a href="https://github.com/LauraCD2/frozen-clip-priors" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+            Code
+          </a>
+          <button type="button" data-bib="bib-eccv">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            BibTeX
+          </button>
+        </div>
+<pre class="bib" id="bib-eccv">@inproceedings{diazdelgado2026frozenclip,
+  title     = {Frozen {CLIP} Priors for Robust Self-Supervised
+               Poisson Inverse Problems},
+  author    = {Diaz-Delgado, Laura C. and Martinez, Emmanuel
+               and Arguello, Henry},
+  booktitle = {Proceedings of the European Conference on
+               Computer Vision (ECCV) Workshops},
+  year      = {2026}
+}</pre>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="pubvenue muted"><span class="tag">STSIVA 2025</span> IEEE Symposium on Image, Signal Processing &amp; Artificial Vision</div>
+      <h3>Deep Gaussian Optical Bandpass Filter Design for Fermentation Index Estimation in Cocoa Beans</h3>
+      <p class="authors"><span class="me">Laura C. Diaz-Delgado</span>, Brayan Monroy, Jorge Bacca, Henry Arguello</p>
+      <p class="where">End-to-end optimisation of a low-cost near-infrared multispectral filter set jointly with the network that estimates the fermentation index of dried cocoa beans.</p>
+      <div class="pubactions">
+        <a href="https://github.com/LauraCD2/OBF-Design" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+          Code
+        </a>
+        <a href="https://scholar.google.com/citations?user=jAfnVpoAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+          Scholar
+        </a>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="pubvenue muted"><span class="tag">STSIVA 2025</span> IEEE Symposium on Image, Signal Processing &amp; Artificial Vision</div>
+      <h3>DistillPool: Knowledge Distillation Techniques for Single-Pixel Imaging</h3>
+      <p class="authors">Julio Gutierrez-Rengifo, <span class="me">Laura C. Diaz-Delgado</span>, Paula Arguello, Roman Jacome, Henry Arguello</p>
+      <p class="where">Distilling a high-sampling-ratio teacher into a student that reconstructs from far fewer single-pixel measurements, easing the trade-off between undersampling and optical sensor cost.</p>
+      <div class="pubactions">
+        <a href="https://scholar.google.com/citations?user=jAfnVpoAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+          Scholar
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="sechead"><h2>News</h2><div class="rule"></div></div>
+    <ul class="news">
+      <li class="new">
+        <span class="date">Sept 2026</span>
+        <span class="what">Presenting <strong>Frozen CLIP Priors</strong> at the <strong>Women in Computer Vision workshop, ECCV 2026</strong> in Malmö, Sweden.</span>
+      </li>
+      <li class="new">
+        <span class="date">Aug 2026</span>
+        <span class="what"><em>Frozen CLIP Priors for Robust Self-Supervised Poisson Inverse Problems</em> accepted at <strong>ECCV 2026 / WiCV</strong> — my first international first-author paper.</span>
+      </li>
+      <li>
+        <span class="date">2025</span>
+        <span class="what">Two papers presented at <strong>STSIVA 2025</strong>: optical bandpass filter design for cocoa quality assessment, and knowledge distillation for single-pixel imaging.</span>
+      </li>
+      <li>
+        <span class="date">2024 – now</span>
+        <span class="what">Serving as <strong>Marketing Chair</strong> of the STSIVA international conference — local logistics and the visual identity of the event.</span>
+      </li>
+      <li>
+        <span class="date">2024 &amp; 2025</span>
+        <span class="what">Sang soprano with the UIS University Choir, named <strong>Best University Choir of Colombia</strong> two years running (ASCUN).</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sechead"><h2>Experience &amp; education</h2><div class="rule"></div></div>
+    <div class="two">
+      <div>
+        <div class="sub">Research</div>
+        <div class="tl">
+          <div class="entry now">
+            <div class="when">2022 — Present</div>
+            <h3>Assistant Researcher</h3>
+            <div class="org">High Dimensional Signal Processing Group (HDSP)</div>
+            <ul>
+              <li>Lead and coordinate the research hotbed on coding design for compressive sampling of multidimensional signals with deep learning.</li>
+              <li>Coordinate the low-cost near-infrared multispectral optical-computational system for estimating physicochemical properties of dried cocoa beans.</li>
+              <li>Acquire spectral signatures in the optical lab, and run preprocessing plus quantitative validation of the classification and regression pipelines.</li>
+              <li>Designed and validated a survey instrument, then applied inferential methods to quantify the effectiveness of privacy-preserving techniques on clinical datasets.</li>
+            </ul>
+          </div>
+          <div class="entry now">
+            <div class="when">Apr 2022 — 2026 (expected)</div>
+            <h3>B.Sc. Computer Science</h3>
+            <div class="org">Universidad Industrial de Santander</div>
+            <p>GPA 4.55 / 5.00 · Full merit scholarship (Generación E, Excelencia).</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sub">Service &amp; teaching</div>
+        <div class="tl">
+          <div class="entry now">
+            <div class="when">2024 — Present</div>
+            <h3>Marketing Chair, STSIVA International Conference</h3>
+            <div class="org">Organising committee</div>
+            <p>Local logistics and design of the conference's visual materials.</p>
+          </div>
+          <div class="entry now">
+            <div class="when">2024 — Present</div>
+            <h3>Art Instructor</h3>
+            <div class="org">Integral Wellness — UIS</div>
+            <p>Art and emotional-wellness workshops for university administrative staff.</p>
+          </div>
+          <div class="entry now">
+            <div class="when">2023 — Present</div>
+            <h3>Teacher</h3>
+            <div class="org">Mochila Cantora Corporación Cultural</div>
+            <p>Artistic and musical education for children aged 2–18, including children on the autism spectrum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <div class="sechead"><h2>Awards &amp; honours</h2><div class="rule"></div></div>
+    <div class="two">
+      <div class="awards">
+        <div class="award">
+          <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1"/></svg></div>
+          <div>
+            <h3>Best University Choir of Colombia — 2024 &amp; 2025</h3>
+            <p>First place, Festival Nacional Universitario de Coros y Ensambles Vocales (ASCUN). Soprano, UIS University Choir.</p>
+          </div>
+        </div>
+        <div class="award">
+          <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 9l7 .6-5.3 4.6L18.3 21 12 17.3 5.7 21l1.6-6.8L2 9.6 9 9z"/></svg></div>
+          <div>
+            <h3>Generación E — Excelencia</h3>
+            <p>Full undergraduate scholarship for academic excellence. Colombian Government &amp; ICETEX.</p>
+          </div>
+        </div>
+        <div class="award">
+          <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <div>
+            <h3>"Arrurrú" — Most Dedicated Chorus Member</h3>
+            <p>Coral Universitaria UIS.</p>
+          </div>
+        </div>
+        <div class="award">
+          <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 9l7 .6-5.3 4.6L18.3 21 12 17.3 5.7 21l1.6-6.8L2 9.6 9 9z"/></svg></div>
+          <div>
+            <h3>Excelencia · Liderazgo · Espíritu Anunciato</h3>
+            <p>Medals awarded by Instituto Santa Teresita.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sub">Skills</div>
+        <div class="skillrow"><div class="k">Programming</div><div class="v">Python, MATLAB, C++</div></div>
+        <div class="skillrow"><div class="k">Frameworks</div><div class="v">PyTorch, TensorFlow, DeepInverse, Git</div></div>
+        <div class="skillrow"><div class="k">Languages</div><div class="v">Spanish (native), English (fluent, B2 certified), French (professional, CEFR B2)</div></div>
+
+        <div class="sub" style="margin-top:30px">Certifications</div>
+        <div class="skillrow"><div class="k">2022–23</div><div class="v">French B2 — Ambassade de France en Colombie</div></div>
+        <div class="skillrow"><div class="k">2023</div><div class="v">Telecommunications Data Network Cabling Design — SENA (48 h)</div></div>
+        <div class="skillrow"><div class="k">2021</div><div class="v">Habilidades de Programación, Misión TIC 2022 — 800 h, web application development</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beyond">
+  <div class="wrap">
+    <div class="sechead"><h2>Beyond research</h2><div class="rule"></div></div>
+    <div class="beyond">
+      <p>I sing soprano in the <strong>UIS University Choir</strong>, named the best university choir in Colombia in 2024 and again in 2025. Music is not a side note to how I work — rehearsing a piece and debugging a reconstruction pipeline ask for the same thing: listening carefully, and being willing to start the passage again.</p>
+      <p>I also teach: art and emotional-wellness workshops for university staff, and artistic-musical education for children aged 2 to 18, including children on the autism spectrum. Explaining a hard idea to a seven-year-old turns out to be excellent preparation for explaining one at a poster session.</p>
+      <div class="links" style="margin-top:0">
+        <a class="lnk" href="https://www.instagram.com/LAURACD2_" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>I'm looking for PhD and research-internship opportunities in computational imaging, inverse problems and machine learning. I'd be glad to hear from you.</p>
+    <div class="links" style="margin-top:0">
+      <a class="lnk primary" href="mailto:lauracamiladiazdelgado@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        lauracamiladiazdelgado@gmail.com
+      </a>
+      <a class="lnk" href="assets/Laura_Diaz-Delgado_CV.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        Download CV
+      </a>
+      <a class="lnk" href="https://www.linkedin.com/in/laura-camila-diaz-delgado-689a55209/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM2.4 21h5.15V9.5H2.4V21zM9.9 9.5h4.93v1.57h.07a5.4 5.4 0 0 1 4.86-2.67c5.2 0 6.16 3.42 6.16 7.87V21h-5.14v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48V21H9.9V9.5z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Laura Camila Diaz-Delgado</span>
+    <span class="mono">HDSP · Universidad Industrial de Santander</span>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themetoggle');
+  var saved=null; try{saved=localStorage.getItem('theme')}catch(e){}
+  if(saved) root.setAttribute('data-theme',saved);
+  btn.addEventListener('click',function(){
+    var isDark = root.getAttribute('data-theme')==='dark' ||
+      (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+  });
+
+  var bar=document.getElementById('topbar');
+  var onScroll=function(){ bar.classList.toggle('stuck', window.scrollY>8) };
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+
+  document.querySelectorAll('[data-bib]').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.getElementById(b.getAttribute('data-bib')).classList.toggle('open');
+    });
+  });
+
+  var links=[].slice.call(document.querySelectorAll('nav.main a[href^="#"]'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+  if('IntersectionObserver' in window && secs.length){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        links.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id);
+        });
+      });
+    },{rootMargin:'-25% 0px -65% 0px'});
+    secs.forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
 </body>
 </html>
