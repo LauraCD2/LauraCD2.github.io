@@ -49,49 +49,8 @@
   --shadow:0 1px 2px rgba(23,18,27,.04), 0 8px 28px -12px rgba(23,18,27,.14);
 }
 
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --magenta:#FF5CB4;
-    --magenta-bright:#FF7FC4;
-    --magenta-tint:#241220;
-    --magenta-line:#4A1F3B;
-
-    --ink:#F4F0F6;
-    --ink-2:#CFC7D6;
-    --ink-3:#9E95A8;
-    --ink-4:#6F6679;
-
-    --bg:#0D0A10;
-    --surface:#151119;
-    --line:#251E2C;
-    --line-soft:#1D1723;
-
-    --on-magenta:#1A0512;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
-  }
-}
-:root[data-theme="dark"]{
-  --magenta:#FF5CB4;
-  --magenta-bright:#FF7FC4;
-  --magenta-tint:#241220;
-  --magenta-line:#4A1F3B;
-
-  --ink:#F4F0F6;
-  --ink-2:#CFC7D6;
-  --ink-3:#9E95A8;
-  --ink-4:#6F6679;
-
-  --bg:#0D0A10;
-  --surface:#151119;
-  --line:#251E2C;
-  --line-soft:#1D1723;
-
-  --on-magenta:#1A0512;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
-}
-
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:82px;-webkit-text-size-adjust:100%}
+html{color-scheme:light;scroll-behavior:smooth;scroll-padding-top:82px;-webkit-text-size-adjust:100%}
 body{
   margin:0;
   background:var(--bg);
@@ -135,13 +94,6 @@ nav.main a{
 }
 nav.main a:hover{color:var(--ink);background:var(--line-soft);text-decoration:none}
 nav.main a.active{color:var(--magenta)}
-.themetoggle{
-  border:1px solid var(--line);background:var(--surface);color:var(--ink-3);
-  width:32px;height:32px;border-radius:9px;display:grid;place-items:center;
-  cursor:pointer;margin-left:8px;flex:none;transition:.2s;padding:0;
-}
-.themetoggle:hover{color:var(--magenta);border-color:var(--magenta-line)}
-.themetoggle svg{width:15px;height:15px}
 @media(max-width:760px){nav.main a{display:none}nav.main a.always{display:block}}
 
 /* ---------- hero ---------- */
@@ -438,9 +390,6 @@ footer a:hover{color:var(--magenta)}
       <a href="#awards">Awards</a>
       <a href="#beyond">Beyond</a>
       <a href="#contact" class="always">Contact</a>
-      <button class="themetoggle" id="themetoggle" aria-label="Toggle colour theme" title="Toggle theme">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
     </nav>
   </div>
 </div>
@@ -676,8 +625,8 @@ footer a:hover{color:var(--magenta)}
             <div class="org">Integral Wellness — UIS</div>
             <p>Art and emotional-wellness workshops for university administrative staff.</p>
           </div>
-          <div class="entry now">
-            <div class="when">2023 — Present</div>
+          <div class="entry">
+            <div class="when">2023 — 2025</div>
             <h3>Teacher</h3>
             <div class="org">Mochila Cantora Corporación Cultural</div>
             <p>Artistic and musical education for children aged 2–18, including children on the autism spectrum.</p>
@@ -743,7 +692,7 @@ footer a:hover{color:var(--magenta)}
     <div class="sechead"><h2>Beyond research</h2><div class="rule"></div></div>
     <div class="beyond">
       <p>I sing soprano in the <strong>UIS University Choir</strong>, named the best university choir in Colombia in 2024 and again in 2025. Music is not a side note to how I work — rehearsing a piece and debugging a reconstruction pipeline ask for the same thing: listening carefully, and being willing to start the passage again.</p>
-      <p>I also teach: art and emotional-wellness workshops for university staff, and artistic-musical education for children aged 2 to 18, including children on the autism spectrum. Explaining a hard idea to a seven-year-old turns out to be excellent preparation for explaining one at a poster session.</p>
+      <p>I also teach art and emotional-wellness workshops for university staff, and for two years taught artistic-musical education to children aged 2 to 18, including children on the autism spectrum. Explaining a hard idea to a seven-year-old turns out to be excellent preparation for explaining one at a poster session.</p>
       <div class="links" style="margin-top:0">
         <a class="lnk" href="https://www.instagram.com/LAURACD2_" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
@@ -785,17 +734,6 @@ footer a:hover{color:var(--magenta)}
 
 <script>
 (function(){
-  var root=document.documentElement, btn=document.getElementById('themetoggle');
-  var saved=null; try{saved=localStorage.getItem('theme')}catch(e){}
-  if(saved) root.setAttribute('data-theme',saved);
-  btn.addEventListener('click',function(){
-    var isDark = root.getAttribute('data-theme')==='dark' ||
-      (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
-    var next = isDark ? 'light' : 'dark';
-    root.setAttribute('data-theme',next);
-    try{localStorage.setItem('theme',next)}catch(e){}
-  });
-
   var bar=document.getElementById('topbar');
   var onScroll=function(){ bar.classList.toggle('stuck', window.scrollY>8) };
   onScroll(); addEventListener('scroll',onScroll,{passive:true});
