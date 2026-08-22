@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Laura C. Diaz-Delgado</title>
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23C2007B'/><text x='50' y='54' font-family='sans-serif' font-size='54' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle'>L</text></svg>">
+
+<style>
+:root{
+  --magenta:#C2007B;
+  --magenta-bright:#E5008F;
+  --magenta-tint:#FDEFF7;
+  --magenta-line:#F3D2E6;
+
+  --ink:#17121B;
+  --ink-2:#3D3446;
+  --ink-3:#6B6175;
+  --ink-4:#767083;
+
+  --bg:#FCFBFC;
+  --surface:#FFFFFF;
+  --line:#EAE6EC;
+
+  --on-magenta:#FFFFFF;
+
+  --sans:'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display:'Inter Tight', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light;-webkit-text-size-adjust:100%}
+body{
+  margin:0;min-height:100vh;
+  display:grid;place-items:center;
+  padding:40px 26px;
+  background:var(--bg);color:var(--ink-2);
+  font-family:var(--sans);font-size:16.5px;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  position:relative;overflow-x:hidden;
+}
+body::before{
+  content:"";position:absolute;inset:-160px 0 auto -10%;height:560px;z-index:0;
+  background:radial-gradient(58% 62% at 30% 30%, var(--magenta-tint) 0%, transparent 70%);
+  pointer-events:none;
+}
+.box{position:relative;z-index:1;max-width:560px;width:100%}
+
+.code{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--magenta);margin-bottom:16px;
+}
+h1{
+  font-family:var(--display);font-size:clamp(2.1rem,6vw,3rem);font-weight:800;
+  letter-spacing:-.038em;line-height:1.14;color:var(--ink);margin:0 0 14px;
+}
+p{margin:0 0 26px;max-width:46ch;color:var(--ink-2)}
+
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.lnk{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:8px 13px;border-radius:10px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink-2);text-decoration:none;
+  font-size:13.5px;font-weight:500;letter-spacing:-.01em;transition:.16s;
+}
+.lnk:hover{
+  color:var(--magenta);border-color:var(--magenta-line);
+  background:var(--magenta-tint);transform:translateY(-1px);
+}
+.lnk svg{width:15px;height:15px;flex:none}
+.lnk.primary{background:var(--magenta);border-color:var(--magenta);color:var(--on-magenta)}
+.lnk.primary:hover{background:var(--magenta-bright);border-color:var(--magenta-bright);color:var(--on-magenta)}
+
+.foot{
+  margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-4);
+}
+::selection{background:var(--magenta-line);color:var(--ink)}
+:focus-visible{outline:2px solid var(--magenta);outline-offset:3px;border-radius:5px}
+</style>
+</head>
+<body>
+  <main class="box">
+    <div class="code">Error 404</div>
+    <h1>This page doesn't exist.</h1>
+    <p>The link may be out of date, or the address slightly off. Everything — papers, poster, CV and contact details — lives on the home page.</p>
+    <div class="links">
+      <a class="lnk primary" href="/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        Home
+      </a>
+      <a class="lnk" href="/#publications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Publications
+      </a>
+      <a class="lnk" href="mailto:lauracamiladiazdelgado@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        Email
+      </a>
+    </div>
+    <div class="foot">HDSP · Universidad Industrial de Santander</div>
+  </main>
+</body>
+</html>

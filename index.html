@@ -18,22 +18,67 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Laura Camila Diaz-Delgado",
-  "url": "https://lauracd2.github.io/",
-  "identifier": "https://orcid.org/0009-0003-9917-9505",
-  "jobTitle": "Assistant Researcher",
-  "affiliation": {
-    "@type": "Organization",
-    "name": "Universidad Industrial de Santander",
-    "department": "High Dimensional Signal Processing Group (HDSP)"
-  },
-  "knowsAbout": ["Computational imaging","Inverse problems","Self-supervised learning","Poisson inverse problems"],
-  "sameAs": [
-    "https://orcid.org/0009-0003-9917-9505",
-    "https://scholar.google.com/citations?user=jAfnVpoAAAAJ",
-    "https://github.com/LauraCD2",
-    "https://www.linkedin.com/in/laura-camila-diaz-delgado-689a55209/"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://lauracd2.github.io/#laura",
+      "name": "Laura Camila Diaz-Delgado",
+      "url": "https://lauracd2.github.io/",
+      "identifier": "https://orcid.org/0009-0003-9917-9505",
+      "jobTitle": "Assistant Researcher",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Universidad Industrial de Santander",
+        "department": "High Dimensional Signal Processing Group (HDSP)"
+      },
+      "knowsAbout": ["Computational imaging","Inverse problems","Self-supervised learning","Poisson inverse problems"],
+      "sameAs": [
+        "https://orcid.org/0009-0003-9917-9505",
+        "https://scholar.google.com/citations?user=jAfnVpoAAAAJ",
+        "https://github.com/LauraCD2",
+        "https://www.linkedin.com/in/laura-camila-diaz-delgado-689a55209/"
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Frozen CLIP Priors for Robust Self-Supervised Poisson Inverse Problems",
+      "author": [
+        {"@id": "https://lauracd2.github.io/#laura"},
+        {"@type": "Person", "name": "Emmanuel Martinez"},
+        {"@type": "Person", "name": "Henry Arguello"}
+      ],
+      "datePublished": "2026-09",
+      "isPartOf": {"@type": "PublicationEvent", "name": "European Conference on Computer Vision (ECCV) 2026", "location": "Malmö, Sweden"}
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Deep Gaussian Optical Bandpass Filter Design for Fermentation Index Estimation in Cocoa Beans",
+      "author": [
+        {"@id": "https://lauracd2.github.io/#laura"},
+        {"@type": "Person", "name": "Brayan Monroy"},
+        {"@type": "Person", "name": "Jorge Bacca"},
+        {"@type": "Person", "name": "Henry Arguello"}
+      ],
+      "datePublished": "2025-08-27",
+      "identifier": "https://doi.org/10.1109/STSIVA66383.2025.11156301",
+      "sameAs": "https://doi.org/10.1109/STSIVA66383.2025.11156301",
+      "isPartOf": {"@type": "PublicationEvent", "name": "XXV Symposium of Image, Signal Processing, and Artificial Vision (STSIVA) 2025"}
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "DistillPool: Knowledge Distillation Techniques for Single-Pixel Imaging",
+      "author": [
+        {"@type": "Person", "name": "Julio Gutierrez-Rengifo"},
+        {"@id": "https://lauracd2.github.io/#laura"},
+        {"@type": "Person", "name": "Paula Arguello"},
+        {"@type": "Person", "name": "Roman Jacome"},
+        {"@type": "Person", "name": "Henry Arguello"}
+      ],
+      "datePublished": "2025-08-27",
+      "identifier": "https://doi.org/10.1109/STSIVA66383.2025.11156574",
+      "sameAs": "https://doi.org/10.1109/STSIVA66383.2025.11156574",
+      "isPartOf": {"@type": "PublicationEvent", "name": "XXV Symposium of Image, Signal Processing, and Artificial Vision (STSIVA) 2025"}
+    }
   ]
 }
 </script>
@@ -54,7 +99,7 @@
   --ink:#17121B;
   --ink-2:#3D3446;
   --ink-3:#6B6175;
-  --ink-4:#9A93A2;
+  --ink-4:#767083;
 
   --bg:#FCFBFC;
   --surface:#FFFFFF;
@@ -158,11 +203,6 @@ h1.name{
   border:1px solid var(--magenta-line);box-shadow:var(--shadow);position:relative;
 }
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;position:relative;z-index:1}
-.portrait .fallback{
-  position:absolute;inset:0;display:grid;place-items:center;z-index:0;
-  font-family:var(--display);font-size:3.4rem;font-weight:800;letter-spacing:-.04em;
-  color:var(--magenta);
-}
 .portrait::after{
   content:"";position:absolute;inset:11px -11px -11px 11px;border-radius:20px;z-index:-1;
   border:1px solid var(--magenta-line);
@@ -292,6 +332,11 @@ a.orcid:hover{opacity:.75}
   text-decoration:none;color:var(--magenta);border-color:var(--magenta-line);background:var(--magenta-tint);
 }
 .pubactions svg{width:13px;height:13px}
+.pubactions a.doi{
+  font-family:var(--mono);font-size:11px;letter-spacing:.01em;
+  border-color:transparent;color:var(--ink-4);padding-left:4px;
+}
+.pubactions a.doi:hover{background:transparent;border-color:transparent;color:var(--magenta)}
 
 .highlights{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1px;
@@ -469,8 +514,7 @@ footer a:hover{color:var(--magenta)}
 
       <div class="portrait">
         <div class="frame">
-          <div class="fallback" aria-hidden="true">LD</div>
-          <img src="assets/laura.jpg" alt="Portrait of Laura C. Diaz-Delgado" onerror="this.style.display='none'">
+          <img src="assets/laura.jpg" width="640" height="723" alt="Portrait of Laura C. Diaz-Delgado">
         </div>
       </div>
     </div>
@@ -512,7 +556,7 @@ footer a:hover{color:var(--magenta)}
 
     <article class="pub feature">
       <div class="teaser">
-        <img src="assets/frozen-clip-teaser.jpg" alt="Architecture diagram: an ADMM-unrolled solver in which each layer performs an x-update, a z-update using a frozen CLIP encoder with a trainable decoder, and a v-update.">
+        <img src="assets/frozen-clip-teaser.jpg" width="2000" height="693" loading="lazy" decoding="async" alt="Architecture diagram: an ADMM-unrolled solver in which each layer performs an x-update, a z-update using a frozen CLIP encoder with a trainable decoder, and a v-update.">
       </div>
       <div class="body">
         <div class="pubvenue"><span class="tag">ECCV 2026</span> European Conference on Computer Vision · Main conference</div>
@@ -566,13 +610,16 @@ footer a:hover{color:var(--magenta)}
       <p class="authors"><span class="me">Laura C. Diaz-Delgado</span><a class="orcid" href="https://orcid.org/0009-0003-9917-9505" target="_blank" rel="noopener" aria-label="ORCID iD 0009-0003-9917-9505" title="ORCID 0009-0003-9917-9505"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.53 17.6H5.85V7.53h1.68V17.6zM6.69 6.5a.98.98 0 1 1 0-1.96.98.98 0 0 1 0 1.96zm4.72 11.1H9.73V7.53h3.4c3.2 0 4.6 2.29 4.6 5.04 0 2.99-1.87 5.03-4.6 5.03h-1.72zm.03-1.51h1.55c2.2 0 3.05-1.67 3.05-3.52 0-1.8-.9-3.53-3.05-3.53h-1.55v7.05z"/></svg></a>, Brayan Monroy, Jorge Bacca, Henry Arguello</p>
       <p class="where">End-to-end optimisation of a low-cost near-infrared multispectral filter set jointly with the network that estimates the fermentation index of dried cocoa beans.</p>
       <div class="pubactions">
+        <a href="https://doi.org/10.1109/STSIVA66383.2025.11156301" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></svg>
+          Paper
+        </a>
         <a href="https://github.com/LauraCD2/OBF-Design" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
           Code
         </a>
-        <a href="https://scholar.google.com/citations?user=jAfnVpoAAAAJ&amp;hl=en" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-          Scholar
+        <a href="https://doi.org/10.1109/STSIVA66383.2025.11156301" target="_blank" rel="noopener" class="doi">
+          10.1109/STSIVA66383.2025.11156301
         </a>
       </div>
     </article>
@@ -583,9 +630,12 @@ footer a:hover{color:var(--magenta)}
       <p class="authors">Julio Gutierrez-Rengifo, <span class="me">Laura C. Diaz-Delgado</span><a class="orcid" href="https://orcid.org/0009-0003-9917-9505" target="_blank" rel="noopener" aria-label="ORCID iD 0009-0003-9917-9505" title="ORCID 0009-0003-9917-9505"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.53 17.6H5.85V7.53h1.68V17.6zM6.69 6.5a.98.98 0 1 1 0-1.96.98.98 0 0 1 0 1.96zm4.72 11.1H9.73V7.53h3.4c3.2 0 4.6 2.29 4.6 5.04 0 2.99-1.87 5.03-4.6 5.03h-1.72zm.03-1.51h1.55c2.2 0 3.05-1.67 3.05-3.52 0-1.8-.9-3.53-3.05-3.53h-1.55v7.05z"/></svg></a>, Paula Arguello, Roman Jacome, Henry Arguello</p>
       <p class="where">Distilling a high-sampling-ratio teacher into a student that reconstructs from far fewer single-pixel measurements, easing the trade-off between undersampling and optical sensor cost.</p>
       <div class="pubactions">
-        <a href="https://scholar.google.com/citations?user=jAfnVpoAAAAJ&amp;hl=en" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-          Scholar
+        <a href="https://doi.org/10.1109/STSIVA66383.2025.11156574" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></svg>
+          Paper
+        </a>
+        <a href="https://doi.org/10.1109/STSIVA66383.2025.11156574" target="_blank" rel="noopener" class="doi">
+          10.1109/STSIVA66383.2025.11156574
         </a>
       </div>
     </article>
@@ -739,7 +789,7 @@ footer a:hover{color:var(--magenta)}
 <div class="contact" id="contact">
   <div class="wrap">
     <h2>Get in touch</h2>
-    <p>I'm looking for PhD and research-internship opportunities in computational imaging, inverse problems and machine learning. I'd be glad to hear from you.</p>
+    <p>I'm always glad to talk about computational imaging, inverse problems and self-supervised reconstruction — a question about the paper, a possible collaboration, or sharing code and data. Email reaches me fastest.</p>
     <div class="links" style="margin-top:0">
       <a class="lnk primary" href="mailto:lauracamiladiazdelgado@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
