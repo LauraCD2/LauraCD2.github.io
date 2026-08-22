@@ -317,6 +317,9 @@ section{padding:60px 0;scroll-margin-top:78px}
 .orcid svg{width:100%;height:100%;display:block}
 a.orcid:hover{opacity:.75}
 .pub .where{font-size:13.5px;color:var(--ink-3);margin:0 0 14px}
+.pub .authors sup.eq{color:var(--magenta);font-weight:700;font-size:.78em;padding-left:1px}
+.eqnote{font-size:12.5px;color:var(--ink-3);margin:0 0 14px;line-height:1.5}
+.eqnote sup.eq{color:var(--magenta);font-weight:700}
 .pub .abstract{
   font-size:14.5px;color:var(--ink-2);line-height:1.62;
   border-left:2px solid var(--magenta-line);padding-left:15px;margin:0 0 16px;
@@ -627,7 +630,8 @@ footer a:hover{color:var(--magenta)}
     <article class="pub">
       <div class="pubvenue muted"><span class="tag">STSIVA 2025</span> IEEE Symposium on Image, Signal Processing &amp; Artificial Vision</div>
       <h3>DistillPool: Knowledge Distillation Techniques for Single-Pixel Imaging</h3>
-      <p class="authors">Julio Gutierrez-Rengifo, <span class="me">Laura C. Diaz-Delgado</span><a class="orcid" href="https://orcid.org/0009-0003-9917-9505" target="_blank" rel="noopener" aria-label="ORCID iD 0009-0003-9917-9505" title="ORCID 0009-0003-9917-9505"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.53 17.6H5.85V7.53h1.68V17.6zM6.69 6.5a.98.98 0 1 1 0-1.96.98.98 0 0 1 0 1.96zm4.72 11.1H9.73V7.53h3.4c3.2 0 4.6 2.29 4.6 5.04 0 2.99-1.87 5.03-4.6 5.03h-1.72zm.03-1.51h1.55c2.2 0 3.05-1.67 3.05-3.52 0-1.8-.9-3.53-3.05-3.53h-1.55v7.05z"/></svg></a>, Paula Arguello, Roman Jacome, Henry Arguello</p>
+      <p class="authors">Julio Gutierrez-Rengifo<sup class="eq">*</sup>, <span class="me">Laura C. Diaz-Delgado</span><sup class="eq">*</sup><a class="orcid" href="https://orcid.org/0009-0003-9917-9505" target="_blank" rel="noopener" aria-label="ORCID iD 0009-0003-9917-9505" title="ORCID 0009-0003-9917-9505"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.53 17.6H5.85V7.53h1.68V17.6zM6.69 6.5a.98.98 0 1 1 0-1.96.98.98 0 0 1 0 1.96zm4.72 11.1H9.73V7.53h3.4c3.2 0 4.6 2.29 4.6 5.04 0 2.99-1.87 5.03-4.6 5.03h-1.72zm.03-1.51h1.55c2.2 0 3.05-1.67 3.05-3.52 0-1.8-.9-3.53-3.05-3.53h-1.55v7.05z"/></svg></a>, Paula Arguello, Roman Jacome, Henry Arguello</p>
+      <p class="eqnote"><sup class="eq">*</sup> Equal contribution &mdash; Julio and I share first authorship. Presented at STSIVA by Julio Gutierrez-Rengifo.</p>
       <p class="where">Distilling a high-sampling-ratio teacher into a student that reconstructs from far fewer single-pixel measurements, easing the trade-off between undersampling and optical sensor cost.</p>
       <div class="pubactions">
         <a href="https://doi.org/10.1109/STSIVA66383.2025.11156574" target="_blank" rel="noopener">
@@ -652,7 +656,7 @@ footer a:hover{color:var(--magenta)}
       </li>
       <li>
         <span class="date">2025</span>
-        <span class="what">Two papers presented at <strong>STSIVA 2025</strong>: optical bandpass filter design for cocoa quality assessment, and knowledge distillation for single-pixel imaging.</span>
+        <span class="what">Presented <strong>Deep Gaussian Optical Bandpass Filter Design</strong> for cocoa quality assessment at <strong>STSIVA 2025</strong>. <strong>DistillPool</strong>, on knowledge distillation for single-pixel imaging, also appeared there &mdash; joint first-authored work with Julio Gutierrez-Rengifo, who presented it.</span>
       </li>
       <li>
         <span class="date">2024 – now</span>
