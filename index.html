@@ -175,11 +175,17 @@ nav.main a.active{color:var(--magenta)}
   pointer-events:none;
 }
 .hero .wrap{position:relative;z-index:1}
-.herogrid{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:52px;align-items:start}
+.herogrid{
+  display:grid;grid-template-columns:minmax(0,1fr) 210px;
+  column-gap:52px;row-gap:26px;align-items:start;
+}
+/* bio + links run as one column across the full width, under the photo */
+.herobody{grid-column:1 / -1}
 @media(max-width:780px){
   .hero{padding-top:44px}
-  .herogrid{grid-template-columns:1fr;gap:30px}
-  .portrait{order:-1;width:132px}
+  .herogrid{grid-template-columns:1fr;row-gap:24px}
+  .portrait{order:-1}
+  .herobody{grid-column:auto}
 }
 
 .eyebrow{
@@ -198,7 +204,7 @@ h1.name{
 .rolelink{color:inherit;text-decoration:underline;text-decoration-thickness:1px;
   text-underline-offset:3px;text-decoration-color:#DD8BBB}
 .rolelink:hover{color:var(--magenta);text-decoration-color:var(--magenta)}
-.bio{max-width:56ch;color:var(--ink-2)}
+.bio{color:var(--ink-2)}
 .bio p{margin:0 0 14px}
 .bio p:last-child{margin-bottom:0}
 
@@ -212,6 +218,9 @@ h1.name{
 .portrait::after{
   content:"";position:absolute;inset:11px -11px -11px 11px;border-radius:20px;z-index:-1;
   border:1px solid var(--magenta-line);
+}
+@media(max-width:780px){
+  .portrait{width:150px}
 }
 
 /* ---------- link row ---------- */
@@ -503,10 +512,19 @@ footer a:hover{color:var(--magenta)}
 <header class="hero" id="top">
   <div class="wrap">
     <div class="herogrid">
-      <div>
+      <div class="herolead">
         <div class="eyebrow">Bucaramanga, Colombia</div>
         <h1 class="name">Laura C.<br>Diaz-Delgado</h1>
         <p class="role">Computer Science undergraduate researching <b>computational imaging</b> and <b>inverse problems</b> at the <a class="rolelink" href="https://hdspgroup.github.io/" target="_blank" rel="noopener">High Dimensional Signal Processing group</a>, Universidad Industrial de Santander.</p>
+      </div>
+
+      <div class="portrait">
+        <div class="frame">
+          <img src="assets/laura.jpg" width="640" height="723" alt="Portrait of Laura C. Diaz-Delgado">
+        </div>
+      </div>
+
+      <div class="herobody">
         <div class="bio">
           <p>I work on reconstruction methods that stay reliable when the physics gets hard — photon-limited sensing, signal-dependent Poisson noise, and acquisition operators that break the usual Gaussian assumptions.</p>
           <p>My current line of work asks how far frozen foundation-model representations can be pushed as priors inside unrolled solvers, so that reconstruction generalises across datasets and optical setups <em>without</em> clean ground truth and without expensive fine-tuning.</p>
@@ -540,12 +558,6 @@ footer a:hover{color:var(--magenta)}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
             Email
           </a>
-        </div>
-      </div>
-
-      <div class="portrait">
-        <div class="frame">
-          <img src="assets/laura.jpg" width="640" height="723" alt="Portrait of Laura C. Diaz-Delgado">
         </div>
       </div>
     </div>
