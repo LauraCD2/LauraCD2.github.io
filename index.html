@@ -455,6 +455,27 @@ footer a{color:var(--ink-3)}
 footer a:hover{color:var(--magenta)}
 .mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
 
+/* ---------- justified prose ---------- */
+.bio p,
+.banner .txt,
+.pub .abstract,
+.pub .where,
+.news .what,
+.entry > p,
+.entry ul li,
+.beyond p,
+.contact p{
+  text-align:justify;
+  text-justify:inter-word;
+  hyphens:auto;
+  -webkit-hyphens:auto;
+}
+/* never justify a narrow column - the gaps get ugly */
+@media(max-width:520px){
+  .bio p,.banner .txt,.pub .abstract,.pub .where,.news .what,
+  .entry > p,.entry ul li,.beyond p,.contact p{text-align:left;hyphens:manual}
+}
+
 ::selection{background:var(--magenta-line);color:var(--ink)}
 :focus-visible{outline:2px solid var(--magenta);outline-offset:3px;border-radius:5px}
 .skip{position:absolute;left:-9999px}
