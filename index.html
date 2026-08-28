@@ -274,6 +274,9 @@ h1.name{
   letter-spacing:-.015em;color:var(--ink);line-height:1.35;
 }
 .session dd .hi{color:var(--magenta)}
+@media(max-width:560px){
+  .session{grid-template-columns:1fr}
+}
 
 .session-inline{
   display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;
@@ -323,6 +326,9 @@ section{padding:60px 0;scroll-margin-top:78px}
 .pubvenue.muted{color:var(--ink-3)}
 .pubvenue.muted .tag{background:var(--ink-4);color:var(--bg)}
 .pub h3{font-size:1.14rem;font-weight:600;letter-spacing:-.025em;line-height:1.32;margin-bottom:9px}
+.pub h3 a{color:inherit}
+.pub h3 a:hover{color:var(--magenta);text-decoration:none}
+.pubactions a.proj{border-color:var(--magenta-line);color:var(--magenta);background:var(--magenta-tint)}
 .pub .authors{font-size:14.5px;color:var(--ink-3);margin:0 0 6px}
 .pub .authors .me{color:var(--ink);font-weight:600}
 .orcid{
@@ -603,7 +609,7 @@ footer a:hover{color:var(--magenta)}
       </div>
       <div class="body">
         <div class="pubvenue"><span class="tag">ECCV 2026</span> European Conference on Computer Vision · Main conference</div>
-        <h3>Frozen CLIP Priors for Robust Self-Supervised Poisson Inverse Problems</h3>
+        <h3><a href="/frozen-clip-priors/">Frozen CLIP Priors for Robust Self-Supervised Poisson Inverse Problems</a></h3>
         <p class="authors"><span class="me">Laura C. Diaz-Delgado</span><a class="orcid" href="https://orcid.org/0009-0003-9917-9505" target="_blank" rel="noopener" aria-label="ORCID iD 0009-0003-9917-9505" title="ORCID 0009-0003-9917-9505"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.53 17.6H5.85V7.53h1.68V17.6zM6.69 6.5a.98.98 0 1 1 0-1.96.98.98 0 0 1 0 1.96zm4.72 11.1H9.73V7.53h3.4c3.2 0 4.6 2.29 4.6 5.04 0 2.99-1.87 5.03-4.6 5.03h-1.72zm.03-1.51h1.55c2.2 0 3.05-1.67 3.05-3.52 0-1.8-.9-3.53-3.05-3.53h-1.55v7.05z"/></svg></a>, Emmanuel Martinez, Henry Arguello</p>
         <p class="where">Universidad Industrial de Santander · Malmö, Sweden · September 2026</p>
 
@@ -622,6 +628,10 @@ footer a:hover{color:var(--magenta)}
         </div>
 
         <div class="pubactions">
+          <a href="/frozen-clip-priors/" class="proj">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+            Project page
+          </a>
           <a href="https://arxiv.org/abs/2608.20524" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></svg>
             Paper
