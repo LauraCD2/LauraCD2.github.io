@@ -201,6 +201,8 @@ section{padding:56px 0;scroll-margin-top:76px}
 .hl .n{font-family:var(--display);font-size:1.45rem;font-weight:700;color:var(--magenta);letter-spacing:-.03em;line-height:1.1}
 .hl .n span{font-size:.62em;font-weight:600;color:var(--ink-3);letter-spacing:0}
 .hl .l{font-size:11.5px;color:var(--ink-3);line-height:1.4;margin-top:4px}
+.hl .l a{color:inherit;text-decoration:underline;text-decoration-color:var(--magenta-line);text-underline-offset:2px}
+.hl .l a:hover{color:var(--magenta)}
 
 /* ---------- tables ---------- */
 .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
@@ -373,6 +375,7 @@ footer a:hover{color:var(--magenta)}
       <div class="hl"><div class="n">0.31 <span>dB</span></div><div class="l">Worst-case gap to its own supervised counterpart</div></div>
       <div class="hl"><div class="n">100<span>×</span></div><div class="l">Fewer TFLOPs than Transfer CLIP</div></div>
       <div class="hl"><div class="n">24 <span>ms</span></div><div class="l">Per image, 3×256×256 on one RTX 4070</div></div>
+      <div class="hl"><div class="n">+11.42 <span>dB</span></div><div class="l"><a href="#real-data">Zero-shot on one real low-light SID capture</a></div></div>
     </div>
 
     <div class="tablewrap" style="margin-bottom:20px">
@@ -448,6 +451,36 @@ footer a:hover{color:var(--magenta)}
       </div>
       <figcaption><b>Poisson deblurring.</b> The blurred measurements lose high-frequency detail and exhibit noise-dependent grain, making texture recovery and edge localisation challenging. Per-image PSNR/SSIM are overlaid.</figcaption>
     </figure>
+  </div>
+</section>
+
+<section id="real-data">
+  <div class="wrap">
+    <div class="sechead"><h2>Real sensor data</h2><div class="rule"></div><span class="note">SID · zero-shot · supplementary</span></div>
+
+    <figure class="figblock" style="margin-bottom:26px">
+      <div class="scroller">
+        <img src="/assets/sid-real.jpg" width="1600" height="401" loading="lazy" decoding="async" alt="Four panels on a real low-light SID capture: the raw mosaic input at 14.95 dB, Ours (self) at 26.37 dB, Ours (sup) at 29.66 dB, and the reference.">
+      </div>
+      <figcaption><b>Zero-shot self-supervised reconstruction on real photon-limited data from the SID dataset.</b> A 512&times;512 patch is reserved for testing, while the remaining patches from the same low-light image are used to train with <em>L</em><sub>self</sub>. The Poisson scaling parameter is estimated per RGB channel, and an affine colour transform is applied for sRGB visualisation and metric evaluation.</figcaption>
+    </figure>
+
+    <div class="tablewrap" style="margin-bottom:22px">
+      <table style="min-width:420px">
+        <caption><b>One real low-light capture</b>, no clean target anywhere in training.</caption>
+        <thead><tr><th>Method</th><th>PSNR [dB]</th><th>SSIM</th></tr></thead>
+        <tbody>
+          <tr><td>Raw mosaic input</td><td>14.95</td><td>0.1731</td></tr>
+          <tr class="ours"><td>Ours (Self)</td><td>26.37</td><td>0.6482</td></tr>
+          <tr class="ours"><td>Ours (Sup)</td><td>29.66</td><td>0.8205</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <p>Synthetic Poisson simulations only go so far. This experiment moves to real photon-limited data from the SID dataset (<a href="https://arxiv.org/abs/1805.01934" target="_blank" rel="noopener">Chen et al., Learning to See in the Dark</a>) under a zero-shot adaptation protocol: a <em>single</em> real low-light image, one 512&times;512 patch held out for testing, and the remaining patches used only to optimise the self-supervised objective. No clean target and no paired supervision are used at any point.</p>
+      <p>Because real sensors exhibit channel-dependent photon statistics, the Poisson scaling is estimated independently for each RGB channel from the raw measurements, giving γ<sub>rgb</sub> = (0.018, 0.017, 0.026). Reconstruction is performed in the linear RGB domain, then a standard affine colour transform is applied for sRGB visualisation and metric evaluation. Adapting from that one image alone lifts the raw mosaic from 14.95 dB to 26.37 dB — <em>+11.42 dB</em> with nothing clean to learn from — which is the evidence that the GR2R + EI training signal survives contact with real acquisition statistics rather than only the simulated ones.</p>
+    </div>
   </div>
 </section>
 
