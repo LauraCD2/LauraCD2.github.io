@@ -192,6 +192,33 @@ section{padding:56px 0;scroll-margin-top:76px}
 .step h3{font-size:1rem;font-weight:650;letter-spacing:-.02em;margin-bottom:7px}
 .step p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.6;text-align:justify;hyphens:auto}
 
+/* ---------- math ---------- */
+math .v{font-weight:700}
+math{
+  font-family:'Latin Modern Math','Cambria Math','STIX Two Math','TeX Gyre Termes Math',
+              'DejaVu Math TeX Gyre',Cambria,Georgia,serif;
+  font-size:1.02em;
+}
+var,.mvar{
+  font-family:'Latin Modern Math','Cambria Math','STIX Two Math',Cambria,Georgia,serif;
+  font-style:italic;font-size:1.02em;
+}
+.eq{
+  margin:0 0 16px;padding:14px 16px;border-radius:11px;
+  background:var(--surface);border:1px solid var(--line);
+  overflow-x:auto;text-align:center;
+}
+.eq math{margin:0 auto}
+.eqstack{margin-top:22px;display:grid;gap:14px}
+.eqrow .eqlabel{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:7px}
+.eqrow .eq{margin:0}
+.eqlead{margin-bottom:24px}
+.eqnote{
+  font-size:12.5px;color:var(--ink-3);text-align:center;margin:-8px 0 24px;line-height:1.5;
+}
+.eqnote var{font-size:1em}
+
 /* ---------- highlights ---------- */
 .highlights{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;
@@ -324,7 +351,7 @@ footer a:hover{color:var(--magenta)}
 
     <figure class="teaser">
       <img src="/assets/frozen-clip-teaser.jpg" width="2000" height="693" alt="Overview of the proposed method: an ADMM-unrolled network whose layers alternate an x-update for data consistency, a z-update implementing the CLIP prior as a frozen encoder with a trainable decoder, and a v-update, mapping the noisy measurement y to the reconstruction x-hat.">
-      <figcaption><b>Overview of the proposed method.</b> The reconstruction network with <em>T</em> iterations alternates between a data-consistency update <em>x</em><sup>t</sup> and a CLIP-based prior update <em>z</em><sup>t</sup>. The prior consists of a frozen CLIP encoder coupled with a learnable decoder. After <em>T</em> iterations, the updates yield the reconstruction <em>x̂</em>.</figcaption>
+      <figcaption><b>Overview of the proposed method.</b> The reconstruction network with <var>T</var> iterations alternates between a data-consistency update <var>x</var><sup>t</sup> and a CLIP-based prior update <var>z</var><sup>t</sup>. The prior consists of a frozen CLIP encoder coupled with a learnable decoder. After <var>T</var> iterations, the updates yield the reconstruction <var>x̂</var>.</figcaption>
     </figure>
   </div>
 </header>
@@ -342,26 +369,74 @@ footer a:hover{color:var(--magenta)}
 <section id="method">
   <div class="wrap">
     <div class="sechead"><h2>Method</h2><div class="rule"></div><span class="note">ADMM-unrolled plug-and-play</span></div>
+    <div class="eq eqlead">
+      <math display="block">
+        <mi class="v">y</mi><mo>=</mo><mi>&#947;</mi><mo>&#8901;</mo>
+        <mi>Poisson</mi><mo stretchy="false">(</mo><mi class="v">A</mi><mi class="v">x</mi><mo>/</mo><mi>&#947;</mi><mo stretchy="false">)</mo>
+      </math>
+    </div>
+    <p class="eqnote">Photon-limited acquisition. <var>A</var> is the known forward operator &mdash; CFA mosaicing or blur &mdash; and <var>&#947;</var> sets the shot-noise level.</p>
+
     <div class="steps">
       <div class="step">
         <div class="n">1</div>
-        <h3>Data consistency</h3>
+<h3>Data consistency</h3>
         <p>A closed-form update for both operators — one division per pixel under CFA sampling, and the same in the Fourier domain under blur. No inner solver, no learned parameters.</p>
       </div>
       <div class="step">
         <div class="n">2</div>
-        <h3>Frozen CLIP prior</h3>
+<h3>Frozen CLIP prior</h3>
         <p>The proximal step is a denoiser built on frozen CLIP RN50 dense multi-scale features. Only a lightweight decoder is trained — 10.99 M parameters — initialised from Transfer CLIP weights; the encoder never moves.</p>
       </div>
       <div class="step">
         <div class="n">3</div>
-        <h3>Self-supervision</h3>
-        <p>GR2R re-corruption in the measurement domain (α = 0.2), unbiased for Poisson data, combined with an Equivariant Imaging regulariser over virtual acquisitions (τ = 0.1). No clean image is ever required.</p>
+<h3>Self-supervision</h3>
+        <p>GR2R re-corruption in the measurement domain (<var>&#945;</var> = 0.2), unbiased for Poisson data, combined with an Equivariant Imaging regulariser over virtual acquisitions (<var>&#964;</var> = 0.1). No clean image is ever required.</p>
+      </div>
+    </div>
+
+
+    <div class="eqstack">
+      <div class="eqrow">
+        <div class="eqlabel">Data consistency — closed form for both operators</div>
+        <div class="eq">
+          <math display="block">
+            <mo stretchy="false">(</mo><msup><mi class="v">A</mi><mo>&#8868;</mo></msup><mi class="v">A</mi><mo>+</mo><mi>&#961;</mi><mi class="v">I</mi><mo stretchy="false">)</mo>
+            <msup><mi class="v">x</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msup>
+            <mo>=</mo>
+            <msup><mi class="v">A</mi><mo>&#8868;</mo></msup><mi class="v">y</mi><mo>+</mo><mi>&#961;</mi>
+            <mo stretchy="false">(</mo><msup><mi class="v">z</mi><mi>t</mi></msup><mo>&#8722;</mo><msup><mi class="v">u</mi><mi>t</mi></msup><mo stretchy="false">)</mo>
+          </math>
+        </div>
+      </div>
+      <div class="eqrow">
+        <div class="eqlabel">CLIP prior — frozen encoder, trainable decoder</div>
+        <div class="eq">
+          <math display="block">
+            <msup><mi class="v">z</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>=</mo>
+            <msub><mi>&#119967;</mi><mi>&#952;</mi></msub>
+            <mo stretchy="false">(</mo><mover><mi class="v">z</mi><mo>&#732;</mo></mover><mo stretchy="false">)</mo><mo>=</mo>
+            <msub><mi>&#119970;</mi><mi>&#952;</mi></msub>
+            <mo stretchy="false">(</mo><msub><mi>&#8496;</mi><mtext>CLIP</mtext></msub>
+            <mo stretchy="false">(</mo><mover><mi class="v">z</mi><mo>&#732;</mo></mover><mo stretchy="false">)</mo><mo stretchy="false">)</mo>
+          </math>
+        </div>
+      </div>
+      <div class="eqrow">
+        <div class="eqlabel">Self-supervised objective — no clean target</div>
+        <div class="eq">
+          <math display="block">
+            <msub><mi>&#8466;</mi><mtext>self</mtext></msub><mo>=</mo>
+            <msub><mi>&#8466;</mi><mtext>GR2R</mtext></msub><mo>+</mo>
+            <mi>&#964;</mi><mspace width="0.15em"></mspace>
+            <msub><mi>&#8466;</mi><mtext>EI</mtext></msub>
+          </math>
+        </div>
       </div>
     </div>
 
     <div class="prose" style="margin-top:24px">
-      <p>The solver unrolls <em>T</em> = 2 ADMM iterations for demosaicing and <em>T</em> = 3 for deblurring, with parameters shared across iterations, so a single decoder serves every layer. Freezing the encoder is what preserves CLIP's distortion-invariant, content-related features: the ablation shows that learning those same features from scratch collapses performance, confirming the gains come from the pretrained representation rather than from the unrolling architecture alone.</p>
+      <p>The solver unrolls <var>T</var> = 2 ADMM iterations for demosaicing and <var>T</var> = 3 for deblurring, with parameters shared across iterations, so a single decoder serves every layer. Freezing the encoder is what preserves CLIP's distortion-invariant, content-related features: the ablation shows that learning those same features from scratch collapses performance, confirming the gains come from the pretrained representation rather than from the unrolling architecture alone.</p>
     </div>
   </div>
 </section>
@@ -371,7 +446,7 @@ footer a:hover{color:var(--magenta)}
     <div class="sechead"><h2>Results</h2><div class="rule"></div><span class="note">PSNR [dB] / SSIM</span></div>
 
     <div class="highlights" style="margin-bottom:26px">
-      <div class="hl"><div class="n">30.53 <span>dB</span></div><div class="l">Self-supervised demosaicing, BSDS500 at γ = 0.01</div></div>
+      <div class="hl"><div class="n">30.53 <span>dB</span></div><div class="l">Self-supervised demosaicing, BSDS500 at <var>&#947;</var> = 0.01</div></div>
       <div class="hl"><div class="n">0.31 <span>dB</span></div><div class="l">Worst-case gap to its own supervised counterpart</div></div>
       <div class="hl"><div class="n">100<span>×</span></div><div class="l">Fewer TFLOPs than Transfer CLIP</div></div>
       <div class="hl"><div class="n">24 <span>ms</span></div><div class="l">Per image, 3×256×256 on one RTX 4070</div></div>
@@ -383,7 +458,7 @@ footer a:hover{color:var(--magenta)}
         <caption><b>Poisson demosaicing.</b> Trained on BSDS500; DIV2K columns measure dataset shift.</caption>
         <thead>
           <tr class="group"><th></th><th></th><th colspan="2">BSDS500</th><th colspan="2" class="sp">DIV2K</th></tr>
-          <tr><th>Method</th><th>γ</th><th>PSNR</th><th>SSIM</th><th class="sp">PSNR</th><th>SSIM</th></tr>
+          <tr><th>Method</th><th><var>&#947;</var></th><th>PSNR</th><th>SSIM</th><th class="sp">PSNR</th><th>SSIM</th></tr>
         </thead>
         <tbody>
           <tr><td>DPIR</td><td>0.01</td><td>25.96</td><td>0.7039</td><td class="sp">25.95</td><td>0.7093</td></tr>
@@ -408,7 +483,7 @@ footer a:hover{color:var(--magenta)}
         <caption><b>Poisson deblurring.</b> 9×9 Gaussian kernel, same photon regimes.</caption>
         <thead>
           <tr class="group"><th></th><th></th><th colspan="2">BSDS500</th><th colspan="2" class="sp">DIV2K</th></tr>
-          <tr><th>Method</th><th>γ</th><th>PSNR</th><th>SSIM</th><th class="sp">PSNR</th><th>SSIM</th></tr>
+          <tr><th>Method</th><th><var>&#947;</var></th><th>PSNR</th><th>SSIM</th><th class="sp">PSNR</th><th>SSIM</th></tr>
         </thead>
         <tbody>
           <tr><td>DPIR</td><td>0.01</td><td>28.81</td><td>0.7949</td><td class="sp">28.25</td><td>0.7894</td></tr>
@@ -429,14 +504,14 @@ footer a:hover{color:var(--magenta)}
     </div>
 
     <div class="prose">
-      <p>The method stays competitive across both photon regimes and under the BSDS500 → DIV2K dataset shift. The margins over the baselines widen where the photon count is lowest — at γ = 0.05 the self-supervised model leads every baseline on both tasks — and the self-supervised objective recovers most of the supervised performance, never falling more than 0.31 dB behind its own supervised counterpart across all eight settings.</p>
+      <p>The method stays competitive across both photon regimes and under the BSDS500 → DIV2K dataset shift. The margins over the baselines widen where the photon count is lowest — at <var>&#947;</var> = 0.05 the self-supervised model leads every baseline on both tasks — and the self-supervised objective recovers most of the supervised performance, never falling more than 0.31 dB behind its own supervised counterpart across all eight settings.</p>
     </div>
   </div>
 </section>
 
 <section id="qualitative">
   <div class="wrap">
-    <div class="sechead"><h2>Qualitative comparison</h2><div class="rule"></div><span class="note">BSDS500 · γ = 0.01</span></div>
+    <div class="sechead"><h2>Qualitative comparison</h2><div class="rule"></div><span class="note">BSDS500 · <var>&#947;</var> = 0.01</span></div>
 
     <figure class="figblock" style="margin-bottom:34px">
       <div class="scroller">
@@ -462,7 +537,7 @@ footer a:hover{color:var(--magenta)}
       <div class="scroller">
         <img src="/assets/sid-real.jpg" width="1600" height="401" loading="lazy" decoding="async" alt="Four panels on a real low-light SID capture: the raw mosaic input at 14.95 dB, Ours (self) at 26.37 dB, Ours (sup) at 29.66 dB, and the reference.">
       </div>
-      <figcaption><b>Zero-shot self-supervised reconstruction on real photon-limited data from the SID dataset.</b> A 512&times;512 patch is reserved for testing, while the remaining patches from the same low-light image are used to train with <em>L</em><sub>self</sub>. The Poisson scaling parameter is estimated per RGB channel, and an affine colour transform is applied for sRGB visualisation and metric evaluation.</figcaption>
+      <figcaption><b>Zero-shot self-supervised reconstruction on real photon-limited data from the SID dataset.</b> A 512&times;512 patch is reserved for testing, while the remaining patches from the same low-light image are used to train with <var>&#8466;</var><sub>self</sub>. The Poisson scaling parameter is estimated per RGB channel, and an affine colour transform is applied for sRGB visualisation and metric evaluation.</figcaption>
     </figure>
 
     <div class="tablewrap" style="margin-bottom:22px">
@@ -479,7 +554,7 @@ footer a:hover{color:var(--magenta)}
 
     <div class="prose">
       <p>Synthetic Poisson simulations only go so far. This experiment moves to real photon-limited data from the SID dataset (<a href="https://arxiv.org/abs/1805.01934" target="_blank" rel="noopener">Chen et al., Learning to See in the Dark</a>) under a zero-shot adaptation protocol: a <em>single</em> real low-light image, one 512&times;512 patch held out for testing, and the remaining patches used only to optimise the self-supervised objective. No clean target and no paired supervision are used at any point.</p>
-      <p>Because real sensors exhibit channel-dependent photon statistics, the Poisson scaling is estimated independently for each RGB channel from the raw measurements, giving γ<sub>rgb</sub> = (0.018, 0.017, 0.026). Reconstruction is performed in the linear RGB domain, then a standard affine colour transform is applied for sRGB visualisation and metric evaluation. Adapting from that one image alone lifts the raw mosaic from 14.95 dB to 26.37 dB — <em>+11.42 dB</em> with nothing clean to learn from — which is the evidence that the GR2R + EI training signal survives contact with real acquisition statistics rather than only the simulated ones.</p>
+      <p>Because real sensors exhibit channel-dependent photon statistics, the Poisson scaling is estimated independently for each RGB channel from the raw measurements, giving <var>&#947;</var><sub>rgb</sub> = (0.018, 0.017, 0.026). Reconstruction is performed in the linear RGB domain, then a standard affine colour transform is applied for sRGB visualisation and metric evaluation. Adapting from that one image alone lifts the raw mosaic from 14.95 dB to 26.37 dB — <b>+11.42 dB</b> with nothing clean to learn from — which is the evidence that the GR2R + EI training signal survives contact with real acquisition statistics rather than only the simulated ones.</p>
     </div>
   </div>
 </section>
